@@ -44,9 +44,9 @@ public class Main {
         String result = IntStream.range(0, steps.length)
                 .mapToObj(i -> i + 1 + " день: " + steps[i])
                 .collect(Collectors.joining(", "));
-        Integer countTotal = Arrays.stream(steps).sum();
-        Integer countMax  = Arrays.stream(steps).max().orElse(0);
-        Integer countAverage  = (int)Arrays.stream(steps).average().orElse(0);
+        int countTotal = Arrays.stream(steps).sum();
+        int countMax  = Arrays.stream(steps).max().orElse(0);
+        int countAverage  = (int)Arrays.stream(steps).average().orElse(0);
 
         System.out.println("Общее количество шагов за месяц: " + countTotal + "\n" +
                 "Максимальное количество шагов за месяц: " + countMax + "\n" +
