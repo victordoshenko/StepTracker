@@ -3,7 +3,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Main {
-    private static StepTracker tracker = new StepTracker();
+    private final static StepTracker tracker = new StepTracker();
 
     public static void main(String[] args) {
         int userInput = -1;
@@ -45,7 +45,14 @@ public class Main {
                 .mapToObj(i -> Integer.toString(i + 1) + " день: " + steps[i])
                 .collect(Collectors.joining(", "));
         Integer countTotal = Arrays.stream(steps).sum();
-        System.out.println("Общее количество шагов за месяц: " + countTotal + "\n" +result);
+        Integer countMax  = Arrays.stream(steps).max().orElse(0);
+        Integer countAverage  = (int)Arrays.stream(steps).average().orElse(0);
+
+        System.out.println("Общее количество шагов за месяц: " + countTotal + "\n" +
+                "Максимальное количество шагов за месяц: " + countMax + "\n" +
+                "Среднее количество шагов за месяц: " + countAverage + "\n" +
+                "Пройденная дистанция (в км): " + Converter.getKilometresFromSteps(countTotal) + "\n" +
+                        result + "\n");
     }
 
     private static int inputNumber(String title, int minValue, int maxValue) {
