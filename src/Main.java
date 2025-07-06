@@ -42,7 +42,7 @@ public class Main {
         int[] steps = tracker.monthData.get(month - 1).steps;
 
         String result = IntStream.range(0, steps.length)
-                .mapToObj(i -> Integer.toString(i + 1) + " день: " + steps[i])
+                .mapToObj(i -> i + 1 + " день: " + steps[i])
                 .collect(Collectors.joining(", "));
         Integer countTotal = Arrays.stream(steps).sum();
         Integer countMax  = Arrays.stream(steps).max().orElse(0);
